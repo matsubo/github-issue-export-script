@@ -20,3 +20,6 @@ This script supports auto pagination.
 ```
 
 
+## screenshot
+
+![image](https://user-images.githubusercontent.com/98103/204869744-5950c7a9-213e-4cf5-b9e6-2787a3a24a75.png)
