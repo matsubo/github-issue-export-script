@@ -5,6 +5,16 @@
 
 ## Setup
 
+
+Create access token on GitHub
+https://github.com/settings/tokens?type=beta
+
+Required permission on a specific repository.
+- Read permission for issues.
+- Read permission for Pull Requests.
+
+
+Paste the generated token into .env file.
 ```
 % cp .env.sample .env
 % vi .env
