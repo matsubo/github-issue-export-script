@@ -8,14 +8,16 @@ client = Octokit::Client.new(access_token: ENV['TOKEN'])
 
 client.auto_paginate = true
 
-prs = client.search_issues("repo:#{ENV['REPOSITORY']} is:issue label:bug created:2023-01-01..2023-09-30 ")['items']
+search = "repo:#{ENV['REPOSITORY']} is:issue label:bug created:2024-01-01..2024-09-30 "
 
-prs_unique = prs.map { |pr| [pr.id, pr] }.to_h
+issues = client.search_issues(search)['items']
 
-export = prs_unique.map do |_key, pr|
-  pr_hash = pr.to_h.slice(:title, :url, :body, :state, :created_at, :closed_at)
-  pr_hash[:url].gsub('https://api.github.com/repos', 'https://github.com')
-  pr_hash
+issues_unique = issues.map { |issue| [issue.id, issue] }.to_h
+
+export = issues_unique.map do |_key, issue|
+  issue_hash = issue.to_h.slice(:title, :url, :body, :state, :created_at, :closed_at)
+  issue_hash[:url].gsub!('https://api.github.com/repos', 'https://github.com')
+  issue_hash
 end
 
 puts export.to_json
