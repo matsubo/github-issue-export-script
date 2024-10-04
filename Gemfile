@@ -2,10 +2,10 @@
 
 source "https://rubygems.org"
 
-gem "octokit", "~> 6.0"
+gem "octokit"
 
-gem "dotenv", "~> 2.8"
+gem "dotenv"
 
-gem "faraday-retry", "~> 2.2"
+gem "faraday-retry"
 
-gem "activesupport", "~> 7.1"
+gem "activesupport"
